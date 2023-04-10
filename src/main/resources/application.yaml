@@ -1,0 +1,26 @@
+spring:
+  profiles:
+      active:
+        - EN
+        - prod
+sebas:
+  username: sebastiaan
+  password: kaaskaaskaas
+  jdbcurl: www.sebasiscool.nl
+  voornaam: Sebastiaan
+  tussenvoegsel: van der
+  achternaam: Made
+
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+sebas:
+  username: prodUsername
+  password: prodPassword
+  jdbcurl: prodURL
+  voornaam: Roy
+  tussenvoegsel: van den
+  achternaam: Hurk
+

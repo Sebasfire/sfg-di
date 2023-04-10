@@ -1,5 +1,8 @@
 package nl.sebastiaan.sfgdi;
 
+import nl.sebastiaan.sfgdi.config.SfgConfiguration;
+import nl.sebastiaan.sfgdi.config.SfgConstructorConfig;
+import nl.sebastiaan.sfgdi.datasource.FakeDataSource;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -36,8 +39,15 @@ public class SfgDiApplication {
 		
 		System.out.println("3) Constructor: ");
 		ConstructorInjectedController conCon = (ConstructorInjectedController) ctx.getBean("constructorInjectedController");
-		System.out.println(conCon.getGreeting());	
-		
+		System.out.println(conCon.getGreeting());
+
+		FakeDataSource fakeDataSource = ctx.getBean(FakeDataSource.class);
+		System.out.println(fakeDataSource.getUsername());
+		System.out.println(fakeDataSource.getPassword());
+		System.out.println(fakeDataSource.getJdbcurl());
+
+		SfgConstructorConfig sfgConfiguration = ctx.getBean(SfgConstructorConfig.class);
+		System.out.println("Groetjes van " + sfgConfiguration.getVoornaam() + " " + sfgConfiguration.getTussenvoegsel() + " " + sfgConfiguration.getAchternaam());
 	}
 
 }
